@@ -1,10 +1,14 @@
-# RrssFrontend
+# Central System For Web
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
-## Development server
+Serves as the frontend application of [Central System Api](https://github.com/ayoubhr/central-system-api).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## HOW TO RUN THE APPLICACION
+
+Step 1: run npm install.
+
+Step 2: Run `ng serve` and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
