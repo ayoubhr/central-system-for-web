@@ -1,0 +1,32 @@
+<div class="show">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="./../../../assets/chargepoint.jpg" id="icon" alt="User Icon" />
+      </div>
+
+      <form #saveForm="ngForm" (ngSubmit)="saveChargepoint(upsertChargepoint)"
+        novalidate>
+        <div>
+          <div class="mb-3">
+            <label>Register the Chargepoint:</label>
+            <input type="text" class="form-control fadeIn second" id="identity" name="identity" placeholder="Identity"
+              #identityModel="ngModel" [(ngModel)]="upsertChargepoint.identity" required
+              [ngClass]="validClasses(identityModel, 'is-valid', 'is-invalid')" />
+            <div class="invalid-feedback" *ngIf="identityModel.errors?.['required']">
+              An identity must be provided for the Chargepoint.
+            </div>
+          </div>
+        </div>
+        <input type="submit" class="fadeIn fourth button" value="Register">
+      </form>
+
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Learn more</a>
+        <br>
+        <a class="underlineHover">About <i class="bi bi-box-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

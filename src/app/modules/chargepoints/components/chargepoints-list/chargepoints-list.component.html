@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-light justify-content-between mt-4 p-2" style="width: 30%; margin-left: 9%;">
+  <form class="form mb-0 w-100">
+    <input style="height: 65px;" class="form-control my-1" type="text" name="searchByIdentity" [(ngModel)]="searchByIdentity"
+      placeholder="Search Chargepoint by Identity" aria-label="Search" />
+  </form>
+</nav>
+
+<div *ngFor="let c of chargepoints | filterByIdentity: searchByIdentity">
+  <div class="mb-4 mt-4 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    <div class="card card2">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="buttons">
+            <h4 class="name">
+              <p class="card-text legal-entity">Identity: {{ c.identity }}</p>
+            </h4>
+            <button class="btn btn-danger" id="btn2" (click)="delete(c)">
+              Remove
+            </button>
+          </div>
+        </div>
+        <div class="card-footer text-muted row m-0">
+          <p class="card-text legal-entity">CPO: {{ c.cpo.id }}</p>
+          <div class="col">Founded in: {{ date | date }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

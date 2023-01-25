@@ -1,0 +1,59 @@
+<div class="show">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="./../../../assets/building.jpg" id="icon" alt="User Icon" />
+      </div>
+
+      <form *ngIf="!organizationToUpdate" #upsertForm="ngForm" (ngSubmit)="saveOrganization(organization)" novalidate>
+        <div>
+          <div class="mb-3">
+            <label>Register your organization:</label>
+            <input type="text" class="form-control fadeIn second" id="name" name="name" placeholder="Name" #nameModel="ngModel"
+              [(ngModel)]="organization.name" required [ngClass]="validClasses(nameModel, 'is-valid', 'is-invalid')" />
+            <div class="invalid-feedback" *ngIf="nameModel.errors?.['required']">
+              A name for your organization is required.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="legalEntity"></label>
+            <input type="text" class="form-control fadeIn third" id="legalEntity" name="legalEntity" placeholder="Legal Entity"
+              #legalEntityModel="ngModel" [(ngModel)]="organization.legalEntity" required
+              [ngClass]="validClasses(legalEntityModel, 'is-valid', 'is-invalid')" />
+            <div class="invalid-feedback" *ngIf="legalEntityModel.errors?.['required']">
+              A legal entity for your organization is required.
+            </div>
+          </div>
+        </div>
+        <input type="submit" class="fadeIn fourth button" value="Send">
+      </form>
+
+      <form *ngIf="organizationToUpdate" #upsertForm="ngForm" (ngSubmit)="updateOrganization(organizationToUpdate)" novalidate>
+        <div>
+          <div class="mb-3">
+            <label>Update your organization:</label>
+            <input type="text" class="form-control fadeIn second" id="name" name="name" placeholder="Name"
+              #nameModel="ngModel" [(ngModel)]="organizationToUpdate.name" required
+              [ngClass]="validClasses(nameModel, 'is-valid', 'is-invalid')" />
+            <div class="invalid-feedback" *ngIf="nameModel.errors?.['required']">
+              A name for your organization is required.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="legalEntity"></label>
+            <input type="text" class="form-control fadeIn third" id="legalEntity" name="legalEntity"
+              placeholder="Legal Entity" #legalEntityModel="ngModel" [(ngModel)]="organizationToUpdate.legalEntity" readonly />
+          </div>
+        </div>
+        <input type="submit" class="fadeIn fourth button" value="Send">
+      </form>
+
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Learn more</a>
+        <br>
+        <a class="underlineHover">About <i class="bi bi-box-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

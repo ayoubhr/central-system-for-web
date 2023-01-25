@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" id="title" (click)="route('title')">{{ title }}</a>
+        <ul class="navbar-nav me-auto">
+            <div style="display: flex;">
+                <li class="nav-item"><a class="nav-link" [routerLink]="['organizations/list']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Organizations</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['chargepoints/list']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Chargepoints</a></li>
+            </div>
+        </ul>
+    </div>
+</nav>

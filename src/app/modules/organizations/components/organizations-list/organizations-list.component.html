@@ -1,0 +1,49 @@
+<nav class="navbar navbar-light bg-light justify-content-between mt-4 p-2" style="width: 30%; margin-left: 9%;">
+  <form class="form mb-0 w-100">
+    <input style="height: 65px;" class="form-control my-1" type="text" name="searchByName" [(ngModel)]="searchByName"
+      placeholder="Search Organization by Name" aria-label="Search" />
+  </form>
+</nav>
+
+<div *ngFor="let o of organizations | filterByName: searchByName">
+  <div class="mb-4 mt-4 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    <div class="card card2">
+      <div class="card shadow">
+        <div class="card-body">
+            <div class="buttons">
+              <h4 class="name">
+                <a [routerLink]="['', ]">{{ o.name }}</a>
+              </h4>
+              <button class="btn btn-primary" id="btn1" (click)="update(o)">
+                Update
+              </button>
+              <button class="btn btn-danger" id="btn2" (click)="delete(o)">
+                Remove
+              </button>
+            </div>
+        </div>
+        <div class="card-footer text-muted row m-0">
+          <p class="card-text legal-entity">Legal Entity: {{ o.legalEntity }}</p>
+          <div class="col">Founded in: {{ date | date }}</div>
+
+          <div id="box">
+            <h3>
+              <a href="#collapseUno" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseUno">Our Chargepoints <i class="bi bi-chevron-down"></i></a>
+            </h3>
+          
+            <div id="chps" aria-labelledby="cartaUno" class="collapse" data-parent="#box" id="collapseUno">
+              <button class="btn-sm btn-primary btn-add" (click)="addChp(o.id)">Add a Chargepoint</button>
+              <p id="list">#List of Chargepoints#</p>
+              <!--Chargepoints list-->
+              <ol>
+                <li *ngFor="let c of chargepoints">
+                 CHP Idendity: {{ c.identity }}.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
