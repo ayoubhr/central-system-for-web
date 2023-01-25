@@ -6,9 +6,13 @@ Serves as the frontend application of [Central System Api](https://github.com/ay
 
 ## HOW TO RUN THE APPLICACION
 
-Step 1: run npm install.
+Step 1: Install [Node.js](https://nodejs.org/en/) and npm. Npm is already included in Node.js installation (skip if you have it).
 
-Step 2: Run `ng serve` and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Step 2: Run _npm install -g @angular/cli_. This will install the Angular cli globally (skip if you have it).
+
+Step 3: navigate to the root folder of the application and Run _npm install_ to install the dependencies.
+
+Step 4: Run `ng serve` and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
